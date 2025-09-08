@@ -13,6 +13,8 @@
       overflow-x: hidden;
       text-align: center;
     }
+
+    /* Clouds */
     .cloud {
       position: absolute;
       font-size: 3rem;
@@ -26,17 +28,23 @@
       0% { left: -15%; }
       100% { left: 110%; }
     }
+
     .scene {
       padding: 100px 20px 50px;
       position: relative;
       z-index: 2;
+      max-width: 100%;
+      overflow: hidden;
     }
+
+    /* Monk Scene */
     .monk-scene {
       position: relative;
       display: inline-block;
       margin: 20px 0;
       z-index: 3;
     }
+
     .main-tree {
       position: absolute;
       font-size: 10rem;
@@ -50,41 +58,34 @@
       0% { transform: translateX(-50%) rotate(-3deg); }
       100% { transform: translateX(-50%) rotate(3deg); }
     }
+
     .monk-with-laptop {
       position: relative;
       font-size: 5rem;
       animation: float 2s ease-in-out infinite alternate;
-      z-index: 0;
+      z-index: 3;
     }
+
     .laptop-on-lap {
-        position: absolute;
-        font-size: 1.5rem;
-        top: 60%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        z-index: 1;
+      position: absolute;
+      font-size: 1.5rem;
+      top: 60%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1;
     }
+
     @keyframes float {
       0% { transform: translateY(0px); }
       100% { transform: translateY(-10px); }
     }
-    h1 {
-      font-size: 3rem;
-      color: #2e7d32;
-      margin-bottom: 10px;
-    }
-    h2 {
-      font-size: 1.5rem;
-      color: #555;
-      margin-bottom: 20px;
-    }
-    p {
-      font-size: 1.2rem;
-      max-width: 750px;
-      margin: 15px auto;
-      line-height: 1.6;
-      text-align: justify;
-    }
+
+    /* Text */
+    h1 { font-size: 3rem; color: #2e7d32; margin-bottom: 10px; }
+    h2 { font-size: 1.5rem; color: #555; margin-bottom: 20px; }
+    p { font-size: 1.2rem; max-width: 750px; margin: 15px auto; line-height: 1.6; text-align: justify; }
+
+    /* Scroll */
     .scroll {
       margin-top: 30px;
       background: #fff8dc;
@@ -100,6 +101,8 @@
       0% { transform: translateY(0); }
       100% { transform: translateY(-5px); }
     }
+
+    /* Buttons and bubbles */
     .btn {
       display: inline-block;
       margin-top: 20px;
@@ -118,6 +121,7 @@
       transform: scale(1.1) rotate(-2deg);
       background: #e65100;
     }
+
     .bubble {
       display: inline-block;
       background: #ffeb3b;
@@ -134,11 +138,14 @@
       50% { transform: scale(1.05); }
       100% { transform: scale(1); }
     }
+
     footer {
       margin-top: 50px;
       font-size: 0.9rem;
       color: #555;
     }
+
+    /* Portfolio link */
     .portfolio-link {
       display: inline-block;
       margin-top: 20px;
@@ -160,13 +167,15 @@
       0%, 100% { transform: rotate(-2deg); }
       50% { transform: rotate(2deg); }
     }
+
+    /* Leaves falling */
     .leaf {
       position: absolute;
       top: -10%;
       font-size: 2rem;
       animation: fall linear infinite;
       opacity: 0.7;
-      z-index: 1;
+      z-index: 2;
     }
     .leaf:nth-child(odd) { animation-duration: 8s; left: 20%; }
     .leaf:nth-child(even) { animation-duration: 12s; left: 70%; }
@@ -174,12 +183,14 @@
       0% { transform: translateY(0) rotate(0deg); }
       100% { transform: translateY(110vh) rotate(360deg); }
     }
+
+    /* Ghosts */
     .ghost {
       position: absolute;
       font-size: 3rem;
       animation: floatGhost 6s ease-in-out infinite;
       opacity: 0.7;
-      z-index: 1;
+      z-index: 2;
     }
     .ghost:nth-child(1) { left: 40%; top: 250px; animation-delay: 0s; }
     .ghost:nth-child(2) { left: 60%; top: 280px; animation-delay: 3s; }
@@ -188,8 +199,11 @@
       50% { transform: translateY(-15px) rotate(5deg); }
       100% { transform: translateY(0) rotate(-5deg); }
     }
+
     .extra-tree1 { position:absolute; left:10%; top:200px; font-size:5rem; animation: sway 4s ease-in-out infinite alternate; z-index: 1; }
     .extra-tree2 { position:absolute; right:10%; top:220px; font-size:6rem; animation: sway 5s ease-in-out infinite alternate; z-index: 1; }
+
+    /* Thank you message */
     .thank-you-message {
       position: fixed;
       top: 50%;
@@ -215,10 +229,32 @@
       visibility: visible;
       transform: translate(-50%, -50%) scale(1.1);
     }
-    .thank-you-message .emoji {
-        display: block;
-        font-size: 3.5rem;
-        margin-bottom: 10px;
+    .thank-you-message .emoji { display: block; font-size: 3.5rem; margin-bottom: 10px; }
+
+    /* ---------------- MOBILE RESPONSIVE ---------------- */
+    @media (max-width: 600px) {
+      .cloud { font-size: 2rem; top: auto; }
+      .cloud:nth-child(2) { top: 40px; font-size: 2.5rem; }
+      .cloud:nth-child(3) { top: 80px; font-size: 2rem; }
+
+      .leaf { font-size: 1.5rem; }
+      .leaf:nth-child(odd) { left: 10%; }
+      .leaf:nth-child(even) { left: 80%; }
+
+      .extra-tree1, .extra-tree2 { font-size: 3rem; top: 150px; }
+      .ghost { font-size: 2rem; top: auto; left: 50%; margin-top: 100px; }
+
+      .main-tree { font-size: 6rem; top: -30px; }
+      .monk-with-laptop { font-size: 3rem; }
+      .laptop-on-lap { font-size: 1rem; top: 65%; }
+
+      h1 { font-size: 2rem; }
+      h2 { font-size: 1rem; }
+      p { font-size: 1rem; margin: 10px auto; }
+      .scroll { padding: 15px; max-width: 90%; }
+      .bubble { font-size: 1rem; padding: 10px 15px; }
+      .btn { font-size: 1rem; padding: 10px 20px; }
+      .portfolio-link { font-size: 1rem; padding: 8px 20px; }
     }
   </style>
 </head>
@@ -226,25 +262,31 @@
   <div class="cloud">☁️</div>
   <div class="cloud">☁️</div>
   <div class="cloud">☁️</div>
+
   <div class="leaf">🍂</div>
   <div class="leaf">🍁</div>
   <div class="leaf">🍂</div>
+
   <div class="extra-tree1">🌳</div>
   <div class="extra-tree2">🌴</div>
+
   <div class="ghost">👻</div>
   <div class="ghost">👻</div>
 
   <div class="scene">
     <div class="monk-scene">
-        <div class="main-tree">🌳</div>
-        <div class="monk-with-laptop" role="img" aria-label="A meditating monk">🧘‍♂️<span class="laptop-on-lap" role="img" aria-label="A laptop">💻</span></div>
+      <div class="main-tree">🌳</div>
+      <div class="monk-with-laptop" role="img" aria-label="A meditating monk">
+        🧘‍♂️
+        <span class="laptop-on-lap" role="img" aria-label="A laptop">💻</span>
+      </div>
     </div>
 
     <h1>Sarwar: The Last Free Man</h1>
     <h2>(Embracing the glorious freedom of a life unhitched)</h2>
 
     <p>
-      I, Sarwar, have not chosen monkhood by default, but with **absolute purpose**. While others have chosen the path of "happily ever after," I have embraced the glorious freedom of a life unhitched. I stand as a bastion of liberty in a world obsessed with marriage and compromised weekends.
+      I, Sarwar, have not chosen monkhood by default, but with <b>absolute purpose</b>. While others have chosen the path of "happily ever after," I have embraced the glorious freedom of a life unhitched. I stand as a bastion of liberty in a world obsessed with marriage and compromised weekends.
     </p>
 
     <p>
@@ -252,18 +294,17 @@
     </p>
 
     <div class="bubble">
-      🚫 **Marriage-related questions are 
-	strictly forbidden.** 🚫
+      🚫 <b>Marriage-related questions are strictly forbidden.</b> 🚫
     </div>
 
     <div class="scroll">
       <h3>📜 The Monk's Sacred Vows</h3>
       <p>
-        “From this moment, until the end of time, I take no spouse, hold no ring, and embrace no family drama. I shall have no house of my own, but shall live under the legendary Laughing Mango Tree. For the greater good, I declare: **No more marriage discussions, matchmaking, or proposals!** Anyone who speaks of such things shall be banished from this sacred site. All are welcome to meditate, bring snacks (snacks = enlightenment fuel 🍪), or simply bask in the glorious freedom that awaits.”
+        “From this moment, until the end of time, I take no spouse, hold no ring, and embrace no family drama. I shall have no house of my own, but shall live under the legendary Laughing Mango Tree. For the greater good, I declare: <b>No more marriage discussions, matchmaking, or proposals!</b> Anyone who speaks of such things shall be banished from this sacred site. All are welcome to meditate, bring snacks (snacks = enlightenment fuel 🍪), or simply bask in the glorious freedom that awaits.”
       </p>
     </div>
 
-    <a href="#" id="acceptMonkhoodBtn" class="btn">🙏 Accept my Monkhood</a><br>
+    <a href="#" id="acceptMonkhoodBtn" class="btn" role="button">🙏 Accept my Monkhood</a><br>
 
     <a class="portfolio-link" href="https://md-golamsarwar-e-azam.github.io/portfolio-site/" target="_blank">
       🌟 Click if you are curious about my past 🌟
@@ -282,15 +323,19 @@
   </div>
 
   <script>
+    const thankYouMessage = document.getElementById('thankYouMessage');
     document.getElementById('acceptMonkhoodBtn').addEventListener('click', function(event) {
       event.preventDefault();
-      const thankYouMessage = document.getElementById('thankYouMessage');
-
       thankYouMessage.classList.add('show');
 
       setTimeout(() => {
         thankYouMessage.classList.remove('show');
       }, 3000);
+    });
+
+    // Allow clicking thank you message to dismiss immediately
+    thankYouMessage.addEventListener('click', () => {
+      thankYouMessage.classList.remove('show');
     });
   </script>
 </body>
